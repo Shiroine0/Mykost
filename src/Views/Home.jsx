@@ -1,5 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Link } from "react-router-dom"
 
 function Home() {
   return (
@@ -81,34 +82,22 @@ function Home() {
         </div>
         {/* untuk pilihan kosannya */}
         <div class="basis 1/2 grid grid-rows-1 md:grid-rows-3 gap-4 p-4">
-            <a href="">
-              <div class="flex flex-row  outline-2 outline-offset-2 outline-slate-200 bg-white rounded-lg shadow-lg">
-                <div class="p-2"> 
-                  <img class=" h-55 items-center rounded-lg" src="/bedroom-1.jpg" alt="Your Company"></img>
-                </div>
-                <div class="p-4 content-center items-center align-middle">
-                  <h3 class="text-3xl font-semibold">Kosan Mewah</h3>
-                  <p class="text-lg text-gray-500">Jl. Raya Kebayoran Lama No. 12, Jakarta Selatan</p>
-                  <span class="text-2xl font-semibold">Rp. 1.000.000</span>
-                </div>
+          <Link to="/Details">
+            <div class="flex flex-row  outline-2 outline-offset-2 outline-slate-200 bg-white rounded-lg shadow-lg">
+              <div class="p-2"> 
+                <img class=" h-55 items-center rounded-lg" src="/bedroom-1.jpg" alt="Your Company"></img>
               </div>
-            </a>
-            <a href="">
-              <div class="flex flex-row  outline-2 outline-offset-2 outline-slate-200 bg-white rounded-lg shadow-lg">
-                <div class="p-2"> 
-                  <img class=" h-55 items-center rounded-lg" src="/bedroom-1.jpg" alt="Your Company"></img>
-                </div>
-                <div class="p-4 content-center items-center align-middle">
-                  <h3 class="text-3xl font-semibold">Kosan Mewah</h3>
-                  <p class="text-lg text-gray-500">Jl. Raya Kebayoran Lama No. 12, Jakarta Selatan</p>
-                  <span class="text-2xl font-semibold">Rp. 1.000.000</span>
-                </div>
+              <div class="p-4 content-center items-center align-middle">
+                <h3 class="text-3xl font-semibold">Kosan Mewah</h3>
+                <p class="text-lg text-gray-500">Jl. Raya Kebayoran Lama No. 12, Jakarta Selatan</p>
+                <span class="text-2xl font-semibold">Rp. 1.000.000</span>
               </div>
-            </a>
+            </div>
+          </Link>
         </div>
       </div>
       <div class="sticky top-0 basis-1/3 bg-black h-dvh">
-          
+        {/* placeholder for the map i think */}
       </div>  
     </main>
   );

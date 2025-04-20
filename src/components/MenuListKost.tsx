@@ -30,19 +30,19 @@ const MenuListKost: React.FC = () => {
           />
           <div className="p-4">
             <div className="flex justify-between items-center">
-              <h2 className="text-lg font-bold">Kosan A</h2>
-              <p className="font-semibold text-sm text-rose-500">Rp 950.000</p>
+              <h2 className="font-poppins text-lg font-bold">Kosan A</h2>
+              <p className="font-poppins font-semibold text-sm">Rp 950.000</p>
             </div>
-            <div className="flex items-center text-gray-500 text-sm mt-1">
+            <div className="font-poppins flex items-center text-gray-500 text-sm mt-1">
               <FaMapMarkerAlt className="mr-1" />
               Jl. Merdeka No.12
             </div>
 
-            <p className="text-sm text-gray-600 mt-2">
+            <p className="font-poppins text-sm text-gray-600 mt-2">
               Fasilitas lengkap, lokasi strategis.
             </p>
 
-            <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
+            <div className="font-poppins flex justify-between items-center text-sm text-gray-700 mt-4">
               <div className="flex items-center space-x-1">
                 <FaBed /> <span>Kasur</span>
               </div>
@@ -68,19 +68,19 @@ const MenuListKost: React.FC = () => {
           />
           <div className="p-4">
             <div className="flex justify-between items-center">
-              <h2 className="text-lg font-bold">Kosan B</h2>
-              <p className="font-semibold text-sm text-rose-500">Rp 850.000</p>
+              <h2 className="font-poppins text-lg font-bold">Kosan B</h2>
+              <p className="font-poppins font-semibold text-sm">Rp 850.000</p>
             </div>
-            <div className="flex items-center text-gray-500 text-sm mt-1">
+            <div className="font-poppins flex items-center text-gray-500 text-sm mt-1">
               <FaMapMarkerAlt className="mr-1" />
               Jl. Sudirman No.10
             </div>
 
-            <p className="text-sm text-gray-600 mt-2">
+            <p className="font-poppins text-sm text-gray-600 mt-2">
               Kosan nyaman dan bersih.
             </p>
 
-            <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
+            <div className="font-poppins flex justify-between items-center text-sm text-gray-700 mt-4">
               <div className="flex items-center space-x-1">
                 <FaBed /> <span>Kasur</span>
               </div>
@@ -98,7 +98,7 @@ const MenuListKost: React.FC = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img
             className="w-full h-48 object-cover"
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -107,7 +107,7 @@ const MenuListKost: React.FC = () => {
           <div className="p-4">
             <div className="flex justify-between items-center">
               <h2 className="text-lg font-bold">Kosan C</h2>
-              <p className="font-semibold text-sm text-rose-500">Rp 780.000</p>
+              <p className="font-semibold text-sm">Rp 780.000</p>
             </div>
             <div className="flex items-center text-gray-500 text-sm mt-1">
               <FaMapMarkerAlt className="mr-1" />
@@ -136,7 +136,7 @@ const MenuListKost: React.FC = () => {
         </div>
 
         {/* Card 4 */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img
             className="w-full h-48 object-cover"
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -145,7 +145,7 @@ const MenuListKost: React.FC = () => {
           <div className="p-4">
             <div className="flex justify-between items-center">
               <h2 className="text-lg font-bold">Kosan D</h2>
-              <p className="font-semibold text-sm text-rose-500">Rp 820.000</p>
+              <p className="font-semibold text-sm">Rp 820.000</p>
             </div>
             <div className="flex items-center text-gray-500 text-sm mt-1">
               <FaMapMarkerAlt className="mr-1" />
@@ -172,7 +172,7 @@ const MenuListKost: React.FC = () => {
         </div>
 
         {/* Card 5 */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img
             className="w-full h-48 object-cover"
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -181,7 +181,7 @@ const MenuListKost: React.FC = () => {
           <div className="p-4">
             <div className="flex justify-between items-center">
               <h2 className="text-lg font-bold">Kosan E</h2>
-              <p className="font-semibold text-sm text-rose-500">Rp 700.000</p>
+              <p className="font-semibold text-sm">Rp 700.000</p>
             </div>
             <div className="flex items-center text-gray-500 text-sm mt-1">
               <FaMapMarkerAlt className="mr-1" />
@@ -210,7 +210,7 @@ const MenuListKost: React.FC = () => {
         </div>
 
         {/* Card 6 */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img
             className="w-full h-48 object-cover"
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -219,7 +219,7 @@ const MenuListKost: React.FC = () => {
           <div className="p-4">
             <div className="flex justify-between items-center">
               <h2 className="text-lg font-bold">Kosan F</h2>
-              <p className="font-semibold text-sm text-rose-500">
+              <p className="font-semibold text-sm">
                 Rp 1.000.000
               </p>
             </div>

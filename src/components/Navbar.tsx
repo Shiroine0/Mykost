@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 
 const Navbar: React.FC = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
-        <a className="btn btn-ghost text-xl">KosKos</a>
+        <Link to="/" className=" hover:bg-transparent hover:border-transparent hover:shadow-none btn btn-ghost text-xl">
+          KosKos
+        </Link>
         <label className="input">
           <svg
             className="h-[1em] opacity-50"

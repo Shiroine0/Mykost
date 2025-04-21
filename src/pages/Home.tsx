@@ -1,15 +1,17 @@
 import Navbar from "../components/Navbar";
+import { useSearch } from "../components/searchcontext";
 import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
 import MenuListKost from "../components/MenuListKost";
 import BottomCarousel from "../components/BottomCarousel";
+import Footer from "../components/Footer";
 
 const Home = () => {
+  const { search } = useSearch();
+
   return (
-    <>
-      <html data-theme="light">
-        <Navbar />
-        <div className="hero bg-base-200 min-h-screen">
+    <div data-theme="light" className="min-h-screen">
+      <Navbar />
+      <div className="hero bg-base-200 min-h-screen">
           <div className="hero-content text-center">
             <div className="max-w-lg text-start">
               <h1 className="text-4xl font-bold text-start font-poppins">
@@ -36,8 +38,7 @@ const Home = () => {
         <MenuListKost/>
         <BottomCarousel/>
         <Footer />
-      </html>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSearch } from "../components/searchcontext";
 
 const Navbar: React.FC = () => {
+  const [input, setInput] = useState("");
+  const { setSearch } = useSearch();
+  const debounceRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+
+    debounceRef.current = setTimeout(() => {
+      setSearch(input.trim());
+    }, 500);
+
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+  }, [input, setSearch]);
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">

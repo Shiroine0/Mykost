@@ -1,8 +1,8 @@
 const SearchBar = () => {
     return (
       <div className="mt-8 bg-white shadow rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 max-w-6xl mx-auto">
-        {/* Lokasi */}
-        <div className="flex flex-col">
+        {/* ini kyknya urg bakal jadiin dropdown sih soalnya nyari lokasinya doang jadi dropdown pun kyknya bisa*/}
+        {/* <div className="flex flex-col">
           <label className="text-sm text-gray-400">Lokasi</label>
           <div className="flex items-center gap-2">
             <input
@@ -25,8 +25,7 @@ const SearchBar = () => {
             </svg>
           </div>
         </div>
-  
-        {/* Divider */}
+   */}
         <div className="w-px h-8 bg-gray-200 hidden sm:block" />
   
         {/* Select Fields */}
@@ -39,10 +38,9 @@ const SearchBar = () => {
           </div>
         ))}
   
-        {/* Divider */}
         <div className="w-px h-8 bg-gray-200 hidden sm:block" />
   
-        {/* Price Inputs */}
+        {/* Price Inputs
         <div className="flex flex-col">
           <label className="text-sm text-gray-400">Harga</label>
           <div className="flex gap-2">
@@ -60,9 +58,8 @@ const SearchBar = () => {
           </div>
         </div>
   
-        {/* Divider */}
         <div className="w-px h-8 bg-gray-200 hidden sm:block" />
-  
+   */}
         {/* Search Button */}
         <button className="btn bg-[#7B61FF] text-white rounded-xl px-6">
           Search

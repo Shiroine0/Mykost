@@ -1,12 +1,12 @@
 import Navbar from "../components/Navbar";
-import { useSearch } from "../components/searchcontext";
+// import { useSearch } from "../components/searchcontext";
 import Carousel from "../components/Carousel";
 import MenuListKost from "../components/MenuListKost";
 import BottomCarousel from "../components/BottomCarousel";
 import Footer from "../components/Footer";
 
 const Home = () => {
-  const { search } = useSearch();
+  // const { search } = useSearch();
 
   return (
     <div data-theme="light" className="min-h-screen">

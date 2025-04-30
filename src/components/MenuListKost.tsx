@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaMapMarkerAlt, FaBed, FaToilet, FaStar } from "react-icons/fa";
 import { LuExpand } from "react-icons/lu";
+import { useSearch } from "./searchcontext";
 
 const MenuListKost: React.FC = () => {
+  const [input, setInput] = useState("");
+    const { setSearch } = useSearch();
+    const debounceRef = useRef<number | null>(null);
+  
+    useEffect(() => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+  
+      debounceRef.current = setTimeout(() => {
+        setSearch(input.trim());
+      }, 500);
+  
+      return () => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+      };
+    }, [input, setSearch]);
   return (
     <div className="w-full px-8 py-12 bg-white">
       {/* Bagian Header */}

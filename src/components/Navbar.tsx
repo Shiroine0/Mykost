@@ -1,27 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSearch } from "../components/searchcontext";
 
 const Navbar: React.FC = () => {
   const [input, setInput] = useState("");
   const { setSearch } = useSearch();
-  const debounceRef = useRef<number | null>(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-
-    debounceRef.current = setTimeout(() => {
-      setSearch(input.trim());
-    }, 500);
-
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
+    setSearch(input.trim());
   }, [input, setSearch]);
+
+  const handleLoginClick = () => {
+    navigate("/user"); 
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
-        <Link to="/" className=" hover:bg-transparent hover:border-transparent hover:shadow-none btn btn-ghost text-xl">
+        <Link
+          to="/"
+          className="hover:bg-transparent hover:border-transparent hover:shadow-none btn btn-ghost text-xl"
+        >
           KosKos
         </Link>
         <label className="input">
@@ -41,12 +41,23 @@ const Navbar: React.FC = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" required placeholder="Masukkan Nama Lokasi" />
+          <input
+            type="search"
+            required
+            placeholder="Masukkan Nama Lokasi"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
         </label>
       </div>
       <div className="navbar-end gap-4">
         <button className="btn btn-ghost">Pusat Bantuan</button>
-        <button className="btn btn-ghost bg-[#7165E3] text-white">Login</button>
+        <button
+          className="btn btn-ghost bg-[#7165E3] text-white"
+          onClick={handleLoginClick} // ⬅️ Event handler login
+        >
+          Login
+        </button>
       </div>
     </div>
   );

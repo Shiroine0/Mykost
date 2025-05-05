@@ -1,13 +1,15 @@
 import React from "react";
 import { FaMapMarkerAlt, FaBed, FaToilet, FaStar } from "react-icons/fa";
 import { LuExpand } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
-const MenuListKost: React.FC = () => {
+const ListKost: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto w-full px-8 py-12 bg-white">
       {/* Grid Card */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Card 1 */}
+        <Link to="/detailkost/1">
         <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img
             className="w-full h-48 object-cover"
@@ -44,6 +46,7 @@ const MenuListKost: React.FC = () => {
             </div>
           </div>
         </div>
+        </Link>
 
         {/* Card 2 */}
         <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
@@ -239,4 +242,4 @@ const MenuListKost: React.FC = () => {
   );
 };
 
-export default MenuListKost;
+export default ListKost;

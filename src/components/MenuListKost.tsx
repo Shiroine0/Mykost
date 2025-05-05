@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaMapMarkerAlt, FaBed, FaToilet, FaStar } from "react-icons/fa";
 import { LuExpand } from "react-icons/lu";
 import { useSearch } from "./searchcontext";
+import { Link } from "react-router-dom";
 
 const MenuListKost: React.FC = () => {
   const [input, setInput] = useState("");
@@ -24,9 +25,11 @@ const MenuListKost: React.FC = () => {
             strategis.
           </p>
         </div>
-        <button className="px-4 py-2 rounded-full border font-poppins border-gray-400 text-sm hover:bg-[#FFF8F6] transition">
-          Lihat selengkapnya
-        </button>
+        <Link to="listkost">
+          <button className="px-4 py-2 rounded-full border font-poppins border-gray-400 text-sm hover:bg-[#FFF8F6] transition">
+            Lihat selengkapnya
+          </button>
+        </Link>
       </div>
 
       {/* Pencarian */}

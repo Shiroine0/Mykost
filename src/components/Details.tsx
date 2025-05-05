@@ -9,16 +9,30 @@ import { BiCar, BiCctv, BiNote, BiWifi } from "react-icons/bi";
 import { FaKitchenSet } from "react-icons/fa6";
 import { BsClock, BsPerson } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Details = () => {
     const [selectedMonth, setSelectedMonth] = useState<string>("");
+    const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMonth(e.target.value);
     };
+
+    const [showLabel, setShowLabel] = useState(false);
+    
+    const handleajukansewa = () => {
+        if (!showLabel) {
+            setShowLabel(true);
+        }
+        else {
+            navigate("/Sewa");
+        }
+    };
+
     return (
         <div className="font-poppins flex flex-col hero min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content items-start flex flex-col lg:flex-row-reverse">
                 {/* image kosan */}
                 <div className="flex flex-col bg-white overflow-hidden ">
                     <img
@@ -26,33 +40,33 @@ const Details = () => {
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" 
                     alt="Kosan A"
                     />
-                    <div className="flex flex-row justify-between items-center">
+                    <div className="flex flex-row justify-between items-center gap-2">
                         <img
-                        className="mr-4 rounded-2xl w-full object-cover"
+                        className="rounded-2xl w-1/4 object-cover"
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                         alt="Kosan A"
                         />
                         <img
-                        className="mr-4 rounded-2xl w-full object-cover"
+                        className="rounded-2xl w-1/4 object-cover"
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                         alt="Kosan A"
                         />
                         <img
-                        className="rounded-2xl w-full object-cover"
+                        className="rounded-2xl w-1/4 object-cover"
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                         alt="Kosan A"
                         />
                         <img
-                        className="ml-4 rounded-2xl w-full object-cover"
+                        className=" rounded-2xl w-1/4 object-cover"
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                         alt="Kosan A"
                         />
                     </div>
-                    {/* desc */}
+                    {/* desc pengelola dan kost*/}
                     <div className="flex flex-row justify-between mt-4">
                         <div className="font-poppins w-2/3">
                             <div className="flex justify-between">
-                                <h1 className="text-3xl font-bold">Skycraper the Shoes</h1>
+                                <h1 className="text-3xl font-bold">Skyscraper the Shoes</h1>
                                 <span className="text-center text-lg flex flex-row">4.5<FaStar className="mt-1 text-yellow-500 ml-2" /></span> 
                             </div>
                             <div className="flex items-center mt-1">
@@ -61,35 +75,7 @@ const Details = () => {
                             <button className="text-[#7165E3] border-[#7165E3] hover:text-white hover:bg-[#7165E3] my-3 p-2 flex items-center justify-center transition border border-gray-200 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
                                 Kos Putra
                             </button>
-                        </div>
-                        <div className="font-poppins w-1/3 ml-4 font-poppins shadow-lg border rounded-xl p-4 flex flex-col justify-center items-center"> 
-                            <div className="w-full flex flex-row justify-between items-center">
-                                <input type="date" className="mr-1 input input-bordered w-full max-w-xs" />
-                                <select
-                                className="ml-1 select select-bordered w-full max-w-xs"
-                                value={selectedMonth}
-                                onChange={handleChange}
-                                >
-                                <option value="" disabled>
-                                    Per Bulan
-                                </option>
-                                <option value="Januari">Januari</option>
-                                <option value="Februari">Februari</option>
-                                <option value="Maret">Maret</option>
-                                <option value="April">April</option>
-                                </select>                       
-                            </div>
-                            <button type="button" className="text-[#7165E3] border-[#7165E3] hover:text-white hover:bg-[#7165E3] my-3 w-full flex items-center justify-center transition border border-gray-200 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
-                                <span>Tanya Pemilik</span>
-                            </button>
-                            <button type="button" className="hover:text-[#7165E3] hover:bg-white border-[#7165E3] bg-[#7165E3] mt-1 mb-3 w-full flex items-center justify-center transition border border-gray-200 text-white  py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
-                                <span>Ajukan sewa</span>
-                            </button>
-                        </div>
-                    </div>
-                    {/* fasilitas */}
-                    <div className="mt-10 w-2/3">
-                        <div className="border border-[#000000] rounded-full px-6 py-4">
+                            <div className="border border-[#000000] rounded-full px-6 py-4">
                             <div className="flex items-center justify-between">
                             <div className="text-left">
                                 <h2 className="text-xl font-bold">Dikelola oleh A-none</h2>
@@ -236,6 +222,78 @@ const Details = () => {
                                 <FaBed className="text-white text-2xl" />
                                 <span className="text-sm">Calon penyewa wajib sertakan ktp</span>
                             </div>
+                        </div>
+                        </div>
+                        {/* pengajuan sewa */}
+                        <div className="h-1/4 font-poppins w-1/3 ml-4 font-poppins shadow-lg border rounded-xl p-4 flex flex-col"> 
+                            {showLabel && (
+                                <div className="gap-2 my-2">
+                                    <label className="text-left text-xl font-bold">Rp.2.000.000</label>
+                                </div>
+                            )}
+                            <div className="w-full flex flex-row justify-between items-center">
+                                <input type="date" className="mr-1 input input-bordered w-full max-w-xs" />
+                                <select
+                                className="ml-1 select select-bordered w-full max-w-xs"
+                                value={selectedMonth}
+                                onChange={handleChange}
+                                >
+                                <option value="" disabled>
+                                    Per Bulan
+                                </option>
+                                <option value="Januari">Januari</option>
+                                <option value="Februari">Februari</option>
+                                <option value="Maret">Maret</option>
+                                <option value="April">April</option>
+                                </select>                       
+                            </div>
+                            {showLabel && (
+                                <div className="flex flex-col gap-2 mt-2">
+                                    <div className="border">
+                                    <p className="mt-2">
+                                    <span className="text-sm">Bisa bayar dp (uang muka) dulu <br /> </span>
+                                    <div className="flex flex-row justify-between items-center">
+                                        <span className="text-sm">
+                                        Biaya Dp : 
+                                        </span>
+                                        <span className="text-sm">Rp.500.000</span>
+                                    </div>
+                                    <div className="flex flex-row justify-between items-center">
+                                        <span className="text-sm">
+                                        Pelunasan : 
+                                        </span>
+                                        <span className="text-sm">Rp.1.500.000</span>
+                                    </div>
+                                    </p>
+
+                                    <hr className="max-w-xs w-full border border-gray-300 my-2 mx-auto rounded-lg" />
+
+                                    <span className="text-sm">Bisa bayar dp (uang muka) dulu <br /> </span>
+                                    <div className="flex flex-row justify-between items-center">
+                                        <span className="text-sm">
+                                        Biaya Dp : 
+                                        </span>
+                                        <span className="text-sm">Rp.500.000</span>
+                                    </div>
+                                    <div className="flex flex-row justify-between items-center">
+                                        <span className="text-sm">
+                                        Pelunasan : 
+                                        </span>
+                                        <span className="text-sm">Rp.1.500.000</span>
+                                    </div>
+                                    </div>
+                                    <div className="flex flex-row justify-between items-center">
+                                    <span className="text-md font-bold">Total Pembayaran Pertama</span>
+                                    <span className="text-md font-bold">Rp.2.000.000</span>
+                                    </div>
+                                </div>
+                            )}
+                            <button type="button" className="text-[#7165E3] border-[#7165E3] hover:text-white hover:bg-[#7165E3] my-3 w-full flex items-center justify-center transition border border-gray-200 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
+                                <span>Tanya Pemilik</span>
+                            </button>
+                            <button  onClick={handleajukansewa}   type="button" className="hover:text-[#7165E3] hover:bg-white border-[#7165E3] bg-[#7165E3] mt-1 mb-3 w-full flex items-center justify-center transition border border-gray-200 text-white  py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
+                                <span>Ajukan sewa</span>
+                            </button>
                         </div>
                     </div>
                 </div>

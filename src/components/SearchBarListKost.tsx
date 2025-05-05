@@ -26,7 +26,6 @@ const SearchBar = () => {
           </div>
         </div>
    */}
-        <div className="w-px h-8 bg-gray-200 hidden sm:block" />
   
         {/* Select Fields */}
         {['tipe kosan', 'Fasilitas kamar', 'Aturan Kosan'].map((label, i) => (
@@ -40,7 +39,7 @@ const SearchBar = () => {
   
         <div className="w-px h-8 bg-gray-200 hidden sm:block" />
   
-        {/* Price Inputs
+        {/* Price Inputs */}
         <div className="flex flex-col">
           <label className="text-sm text-gray-400">Harga</label>
           <div className="flex gap-2">
@@ -59,7 +58,7 @@ const SearchBar = () => {
         </div>
   
         <div className="w-px h-8 bg-gray-200 hidden sm:block" />
-   */}
+  
         {/* Search Button */}
         <button className="btn bg-[#7B61FF] text-white rounded-xl px-6">
           Search

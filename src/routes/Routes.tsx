@@ -8,6 +8,8 @@ import DetailKost from "../pages/DetailKost";
 import FullListKost from "../pages/FullListKost";
 import UserSignUp from "../pages/users/Signup.";
 import PengajuanSewa from "../pages/PengajuanSewa";
+import UserProfile from "../pages/users/Profile";
+import SettingProfile from "../pages/users/Setting";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ export const router = createBrowserRouter([
       { path: "mitra", element: <MitraLogin /> },
       { path: "admin", element: <AdminLogin /> },
       { path: "user", element: <UserLogin />},
+      { path: "profile", element: <UserProfile /> },
+      { path: "setting", element: <SettingProfile /> },
       { path: "register", element: <UserSignUp /> },
       { path: "listkost", element: <FullListKost />,},
       { path: "detailkost/:id", element: <DetailKost /> },

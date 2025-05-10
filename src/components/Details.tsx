@@ -288,10 +288,10 @@ const Details = () => {
                                     </div>
                                 </div>
                             )}
-                            <button type="button" className="text-[#7165E3] border-[#7165E3] hover:text-white hover:bg-[#7165E3] my-3 w-full flex items-center justify-center transition border border-gray-200 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
+                            <button type="button" className="text-[#7165E3] border-[#7165E3] hover:bg-gray-200 my-3 w-full flex items-center justify-center transition border border-gray-200 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
                                 <span>Tanya Pemilik</span>
                             </button>
-                            <button  onClick={handleajukansewa}   type="button" className="hover:text-[#7165E3] hover:bg-white border-[#7165E3] bg-[#7165E3] mt-1 mb-3 w-full flex items-center justify-center transition border border-gray-200 text-white  py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
+                            <button  onClick={handleajukansewa}   type="button" className="hover:bg-[#5b4fdb] border-[#7165E3] bg-[#7165E3] mt-1 mb-3 w-full flex items-center justify-center transition border border-gray-200 text-white  py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal">
                                 <span>Ajukan sewa</span>
                             </button>
                         </div>

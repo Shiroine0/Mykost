@@ -8,6 +8,13 @@ import DetailKost from "../pages/DetailKost";
 import FullListKost from "../pages/FullListKost";
 import UserSignUp from "../pages/users/Signup.";
 import PengajuanSewa from "../pages/PengajuanSewa";
+import DashboardMitra from "../pages/mitra/Dashboard";
+import KelolaKosan from "../pages/mitra/KelolaKosan";
+import CalonPenghuni from "../pages/mitra/CalonPenghuni";
+import PenarikanSaldo from "../pages/mitra/PenarikanSaldo";
+import Pengaturan from "../pages/mitra/Pengaturan";
+import DashboardAdmin from "../pages/admin/Dashboard";
+import KelolaMitra from "../pages/admin/KelolaMitra";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +29,13 @@ export const router = createBrowserRouter([
       { path: "listkost", element: <FullListKost />,},
       { path: "detailkost/:id", element: <DetailKost /> },
       { path: "sewa", element: <PengajuanSewa /> },
+      { path: "dashboardmitra", element: <DashboardMitra /> },
+      { path: "kelolakosan", element: <KelolaKosan /> },
+      { path: "calonpenghuni", element: <CalonPenghuni /> },
+      { path: "penarikansaldo", element: <PenarikanSaldo /> },
+      { path: "pengaturan", element: <Pengaturan /> },
+      { path: "dashboardadmin", element: <DashboardAdmin /> },
+      { path: "kelolamitra", element: <KelolaMitra /> },
       { path: "*", element: <div>404 - Halaman Tidak Ditemukan</div> },
     ],
   },

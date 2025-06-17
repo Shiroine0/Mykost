@@ -2,242 +2,145 @@ import React from "react";
 import { FaMapMarkerAlt, FaBed, FaToilet, FaStar } from "react-icons/fa";
 import { LuExpand } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+// Variants untuk container grid (staggering)
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+// Variants untuk setiap card
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const ListKost: React.FC = () => {
+  const kostList = [
+    {
+      id: 1,
+      name: "Kosan A",
+      price: "Rp 950.000",
+      address: "Jl. Merdeka No.12",
+      desc: "Fasilitas lengkap, lokasi strategis.",
+      size: "3x4m",
+      rating: 4.9,
+      image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+      to: "/detailkost/1",
+    },
+    {
+      id: 2,
+      name: "Kosan B",
+      price: "Rp 850.000",
+      address: "Jl. Sudirman No.10",
+      desc: "Kosan nyaman dan bersih.",
+      size: "4x5m",
+      rating: 4.7,
+      image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+    },
+    {
+      id: 3,
+      name: "Kosan C",
+      price: "Rp 780.000",
+      address: "Jl. Diponegoro No.5",
+      desc: "Dekat kampus dan pusat kota.",
+      size: "3x4m",
+      rating: 4.8,
+      image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+    },
+    {
+      id: 4,
+      name: "Kosan D",
+      price: "Rp 820.000",
+      address: "Jl. Melati No.2",
+      desc: "Kosan tenang dan asri.",
+      size: "3x4m",
+      rating: 4.6,
+      image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+    },
+    {
+      id: 5,
+      name: "Kosan E",
+      price: "Rp 700.000",
+      address: "Jl. Cemara No.3",
+      desc: "Harga terjangkau dengan fasilitas lengkap.",
+      size: "3x3m",
+      rating: 4.5,
+      image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+    },
+    {
+      id: 6,
+      name: "Kosan F",
+      price: "Rp 1.000.000",
+      address: "Jl. Anggrek No.9",
+      desc: "Kosan eksklusif dengan keamanan 24 jam.",
+      size: "5x6m",
+      rating: 5.0,
+      image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+    },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto w-full px-8 py-12 bg-white">
-      {/* Grid Card */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Card 1 */}
-        <Link to="/detailkost/1">
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img
-            className="w-full h-48 object-cover"
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Kosan A"
-          />
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="font-poppins text-lg font-bold">Kosan A</h2>
-              <p className="font-poppins font-semibold text-sm">Rp 950.000</p>
-            </div>
-            <div className="font-poppins flex items-center text-gray-500 text-sm mt-1">
-              <FaMapMarkerAlt className="mr-1" />
-              Jl. Merdeka No.12
-            </div>
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {kostList.map((kost) => {
+          const KostCard = (
+            <motion.div
+              key={kost.id}
+              className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
+              variants={cardVariants}
+            >
+              <img className="w-full h-48 object-cover" src={kost.image} alt={kost.name} />
+              <div className="p-4">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-lg font-bold">{kost.name}</h2>
+                  <p className="font-semibold text-sm">{kost.price}</p>
+                </div>
+                <div className="flex items-center text-gray-500 text-sm mt-1">
+                  <FaMapMarkerAlt className="mr-1" />
+                  {kost.address}
+                </div>
 
-            <p className="font-poppins text-sm text-gray-600 mt-2">
-              Fasilitas lengkap, lokasi strategis.
-            </p>
+                <p className="text-sm text-gray-600 mt-2">{kost.desc}</p>
 
-            <div className="font-poppins flex justify-between items-center text-sm text-gray-700 mt-4">
-              <div className="flex items-center space-x-1">
-                <FaBed /> <span>Kasur</span>
+                <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
+                  <div className="flex items-center space-x-1">
+                    <FaBed /> <span>Kasur</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <FaToilet /> <span>Toilet</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <LuExpand /> <span>{kost.size}</span>
+                  </div>
+                  <div className="flex items-center font-semibold">
+                    <span>{kost.rating}</span> <FaStar className="text-yellow-500 ml-1" />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-1">
-                <FaToilet /> <span>Toilet</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <LuExpand /> <span>3x4m</span>
-              </div>
-              <div className="flex items-center font-semibold">
-                <span>4.9</span> <FaStar className="text-yellow-500 ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-        </Link>
+            </motion.div>
+          );
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img
-            className="w-full h-48 object-cover"
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Kosan B"
-          />
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="font-poppins text-lg font-bold">Kosan B</h2>
-              <p className="font-poppins font-semibold text-sm">Rp 850.000</p>
-            </div>
-            <div className="font-poppins flex items-center text-gray-500 text-sm mt-1">
-              <FaMapMarkerAlt className="mr-1" />
-              Jl. Sudirman No.10
-            </div>
-
-            <p className="font-poppins text-sm text-gray-600 mt-2">
-              Kosan nyaman dan bersih.
-            </p>
-
-            <div className="font-poppins flex justify-between items-center text-sm text-gray-700 mt-4">
-              <div className="flex items-center space-x-1">
-                <FaBed /> <span>Kasur</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaToilet /> <span>Toilet</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <LuExpand /> <span>4x5m</span>
-              </div>
-              <div className="flex items-center font-semibold">
-                <span>4.7</span> <FaStar className="text-yellow-500 ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img
-            className="w-full h-48 object-cover"
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Kosan C"
-          />
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="text-lg font-bold">Kosan C</h2>
-              <p className="font-semibold text-sm">Rp 780.000</p>
-            </div>
-            <div className="flex items-center text-gray-500 text-sm mt-1">
-              <FaMapMarkerAlt className="mr-1" />
-              Jl. Diponegoro No.5
-            </div>
-
-            <p className="text-sm text-gray-600 mt-2">
-              Dekat kampus dan pusat kota.
-            </p>
-
-            <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
-              <div className="flex items-center space-x-1">
-                <FaBed /> <span>Kasur</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaToilet /> <span>Toilet</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <LuExpand /> <span>3x4m</span>
-              </div>
-              <div className="flex items-center font-semibold">
-                <span>4.8</span> <FaStar className="text-yellow-500 ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 4 */}
-        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img
-            className="w-full h-48 object-cover"
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Kosan D"
-          />
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="text-lg font-bold">Kosan D</h2>
-              <p className="font-semibold text-sm">Rp 820.000</p>
-            </div>
-            <div className="flex items-center text-gray-500 text-sm mt-1">
-              <FaMapMarkerAlt className="mr-1" />
-              Jl. Melati No.2
-            </div>
-
-            <p className="text-sm text-gray-600 mt-2">Kosan tenang dan asri.</p>
-
-            <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
-              <div className="flex items-center space-x-1">
-                <FaBed /> <span>Kasur</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaToilet /> <span>Toilet</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <LuExpand /> <span>3x4m</span>
-              </div>
-              <div className="flex items-center font-semibold">
-                <span>4.6</span> <FaStar className="text-yellow-500 ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 5 */}
-        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img
-            className="w-full h-48 object-cover"
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Kosan E"
-          />
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="text-lg font-bold">Kosan E</h2>
-              <p className="font-semibold text-sm">Rp 700.000</p>
-            </div>
-            <div className="flex items-center text-gray-500 text-sm mt-1">
-              <FaMapMarkerAlt className="mr-1" />
-              Jl. Cemara No.3
-            </div>
-
-            <p className="text-sm text-gray-600 mt-2">
-              Harga terjangkau dengan fasilitas lengkap.
-            </p>
-
-            <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
-              <div className="flex items-center space-x-1">
-                <FaBed /> <span>Kasur</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaToilet /> <span>Toilet</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <LuExpand /> <span>3x3m</span>
-              </div>
-              <div className="flex items-center font-semibold">
-                <span>4.5</span> <FaStar className="text-yellow-500 ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 6 */}
-        <div className="font-poppins bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img
-            className="w-full h-48 object-cover"
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Kosan F"
-          />
-          <div className="p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="text-lg font-bold">Kosan F</h2>
-              <p className="font-semibold text-sm">
-                Rp 1.000.000
-              </p>
-            </div>
-            <div className="flex items-center text-gray-500 text-sm mt-1">
-              <FaMapMarkerAlt className="mr-1" />
-              Jl. Anggrek No.9
-            </div>
-
-            <p className="text-sm text-gray-600 mt-2">
-              Kosan eksklusif dengan keamanan 24 jam.
-            </p>
-
-            <div className="flex justify-between items-center text-sm text-gray-700 mt-4">
-              <div className="flex items-center space-x-1">
-                <FaBed /> <span>Kasur</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaToilet /> <span>Toilet</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <LuExpand /> <span>5x6m</span>
-              </div>
-              <div className="flex items-center font-semibold">
-                <span>5.0</span> <FaStar className="text-yellow-500 ml-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          return kost.to ? (
+            <Link key={kost.id} to={kost.to}>
+              {KostCard}
+            </Link>
+          ) : (
+            KostCard
+          );
+        })}
+      </motion.div>
     </div>
   );
 };
